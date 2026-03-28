@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gana $97/Mes Por Cada Contratista - Programa de Socios Slate Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --navy: #152a45; --orange: #ee7000; --gray: #6b7280; --white: #fff; --green: #22c55e; --dark: #0f172a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', -apple-system, sans-serif; background: var(--dark); color: var(--white); }
+
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 50%, var(--navy) 100%);
+            text-align: center; padding: 4rem 2rem 3rem;
+        }
+        .hero-badge {
+            display: inline-block; background: rgba(34,197,94,0.15); color: var(--green);
+            padding: 0.35rem 0.9rem; border-radius: 20px; font-size: 0.72rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.25rem;
+        }
+        .hero h1 { font-size: 2.2rem; font-weight: 900; line-height: 1.15; margin-bottom: 0.5rem; }
+        .hero h1 span { color: var(--green); }
+        .hero .sub { color: rgba(255,255,255,0.6); font-size: 0.95rem; max-width: 480px; margin: 0 auto 0.5rem; line-height: 1.5; }
+        .hero .sub2 { color: var(--orange); font-size: 1.1rem; font-weight: 700; margin-bottom: 1.5rem; }
+
+        section { max-width: 900px; margin: 0 auto; padding: 2.5rem 2rem; }
+        h2 { font-size: 1.35rem; font-weight: 800; text-align: center; margin-bottom: 0.4rem; }
+        h2 span { color: var(--orange); }
+        .section-sub { text-align: center; color: rgba(255,255,255,0.5); font-size: 0.82rem; margin-bottom: 1.5rem; }
+
+        /* === THE CENTERPIECE === */
+        .free-slate {
+            background: linear-gradient(135deg, rgba(34,197,94,0.08), rgba(34,197,94,0.02));
+            border: 2px solid rgba(34,197,94,0.25); border-radius: 16px;
+            padding: 2rem; text-align: center; margin-bottom: 1.5rem;
+        }
+        .free-slate h3 { color: var(--green); font-size: 1.3rem; font-weight: 800; margin-bottom: 0.3rem; }
+        .free-slate p { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 1.25rem; }
+
+        .milestone-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+        .milestone {
+            background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1.25rem 0.75rem;
+            text-align: center; position: relative;
+        }
+        .milestone.featured {
+            background: rgba(34,197,94,0.1); border: 2px solid rgba(34,197,94,0.3);
+        }
+        .milestone-tag {
+            position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+            background: var(--green); color: var(--dark); font-size: 0.6rem; font-weight: 800;
+            padding: 0.15rem 0.6rem; border-radius: 10px; text-transform: uppercase; white-space: nowrap;
+        }
+        .milestone-refs { color: rgba(255,255,255,0.5); font-size: 0.72rem; font-weight: 600; margin-bottom: 0.15rem; margin-top: 0.3rem; }
+        .milestone-amount { font-size: 2.2rem; font-weight: 900; color: var(--orange); line-height: 1.1; }
+        .milestone.featured .milestone-amount { color: var(--green); }
+        .milestone-label { font-size: 0.7rem; color: rgba(255,255,255,0.45); margin-top: 0.15rem; }
+        .milestone-what { font-size: 0.72rem; color: rgba(255,255,255,0.7); font-weight: 600; margin-top: 0.4rem; padding-top: 0.4rem; border-top: 1px solid rgba(255,255,255,0.08); }
+        .milestone.featured .milestone-what { color: var(--green); border-color: rgba(34,197,94,0.2); }
+
+        .math-note {
+            text-align: center; color: rgba(255,255,255,0.4); font-size: 0.75rem;
+            margin-top: 1rem; line-height: 1.5;
+        }
+
+        /* DEDICATED SIDEBAR */
+        .dedicated-box {
+            background: rgba(238,112,0,0.06); border: 1px solid rgba(238,112,0,0.15);
+            border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;
+        }
+        .dedicated-box h3 { color: var(--orange); font-size: 0.95rem; margin-bottom: 0.4rem; }
+        .dedicated-box p { color: rgba(255,255,255,0.55); font-size: 0.8rem; line-height: 1.5; margin-bottom: 0.75rem; }
+        .dedicated-ideas { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
+        .idea-tag {
+            background: rgba(238,112,0,0.1); color: var(--orange); padding: 0.25rem 0.6rem;
+            border-radius: 4px; font-size: 0.7rem; font-weight: 600;
+        }
+        .dedicated-nums { display: flex; gap: 1.5rem; justify-content: center; }
+        .dedicated-num { text-align: center; }
+        .dedicated-num .big { font-size: 1.3rem; font-weight: 900; color: var(--orange); }
+        .dedicated-num .small { font-size: 0.65rem; color: rgba(255,255,255,0.4); }
+
+        /* HOW IT WORKS */
+        .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .how-step {
+            background: rgba(255,255,255,0.04); border-radius: 12px; padding: 1.5rem;
+            text-align: center; border: 1px solid rgba(255,255,255,0.06);
+        }
+        .how-num {
+            width: 32px; height: 32px; background: var(--orange); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 0.85rem; margin: 0 auto 0.6rem;
+        }
+        .how-title { font-weight: 700; font-size: 0.85rem; margin-bottom: 0.25rem; }
+        .how-desc { color: rgba(255,255,255,0.5); font-size: 0.75rem; line-height: 1.45; }
+
+        /* PRODUCT */
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.25rem; }
+        .product-card {
+            background: rgba(255,255,255,0.04); border-radius: 12px; padding: 1.5rem;
+            border-left: 3px solid var(--orange);
+        }
+        .product-icon { font-size: 1.2rem; margin-bottom: 0.3rem; }
+        .product-name { font-weight: 700; font-size: 0.82rem; margin-bottom: 0.15rem; }
+        .product-benefit { color: var(--orange); font-size: 0.72rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .product-proof { color: rgba(255,255,255,0.4); font-size: 0.68rem; font-style: italic; }
+        .product-bottom { text-align: center; color: rgba(255,255,255,0.5); font-size: 0.82rem; margin-bottom: 1rem; }
+        .product-bottom strong { color: var(--white); }
+
+        /* MARKET */
+        .market-bar {
+            background: rgba(238,112,0,0.06); border: 1px solid rgba(238,112,0,0.12);
+            border-radius: 10px; padding: 1.25rem; text-align: center;
+        }
+        .market-bar .num { font-size: 2.2rem; font-weight: 900; color: var(--orange); }
+        .market-bar p { color: rgba(255,255,255,0.5); font-size: 0.78rem; margin-top: 0.25rem; }
+
+        /* FAQ */
+        .faq-item {
+            border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;
+            margin-bottom: 0.5rem; cursor: pointer; overflow: hidden;
+        }
+        .faq-q { padding: 0.75rem 1rem; font-weight: 600; font-size: 0.8rem; position: relative; padding-right: 2.5rem; }
+        .faq-q::after { content: '+'; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: var(--orange); font-weight: 700; }
+        .faq-item.open .faq-q::after { content: '-'; }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 1rem; font-size: 0.75rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+        .faq-item.open .faq-a { max-height: 300px; padding: 0 1rem 0.75rem; }
+
+        .final-cta { text-align: center; padding: 2.5rem 2rem; background: linear-gradient(135deg, var(--navy), #1e3a5f); border-radius: 16px; }
+        .cta-btn { display: inline-block; background: var(--orange); color: var(--white); padding: 0.9rem 2.5rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; }
+        .cta-btn:hover { background: #d46300; }
+
+        footer { text-align: center; padding: 1.5rem; color: rgba(255,255,255,0.25); font-size: 0.68rem; }
+        footer a { color: var(--orange); text-decoration: none; }
+
+        @media (max-width: 600px) {
+            .hero { padding: 4rem 1.25rem 3rem; }
+            .hero h1 { font-size: 1.6rem; }
+            section { padding: 2.5rem 1.25rem; }
+            .how-grid, .product-grid { grid-template-columns: 1fr; }
+            .dedicated-nums { flex-direction: column; gap: 0.5rem; }
+            .cta-btn { padding: 1rem 2rem; font-size: 1rem; }
+            .faq-q { padding: 1rem; padding-right: 2.5rem; }
+        }
+        @media (max-width: 400px) {
+            .milestone-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="hero-badge">Cada Cliente de Slate Es un Socio</div>
+    <h1><span>$97/Mes</span> Por Cada Contratista Que Refieras</h1>
+    <p class="sub">Se quedan, t&uacute; cobras. Cada mes. Sin l&iacute;mite. Sin trabajo despu&eacute;s de la intro.</p>
+    <p class="sub2">Refiere 3. Slate es gratis. Todo lo dem&aacute;s es ganancia.</p>
+</div>
+
+<!-- THE CENTERPIECE -->
+<section>
+    <div class="free-slate">
+        <h3>Qu&eacute; Tan R&aacute;pido Slate Se Paga Solo</h3>
+        <p>Pagas $297/mes. Cada referido te gana $97/mes. Haz la cuenta.</p>
+
+        <div class="milestone-row">
+            <div class="milestone featured">
+                <div class="milestone-tag">Slate es gratis</div>
+                <div class="milestone-refs">3 referidos</div>
+                <div class="milestone-amount">$291</div>
+                <div class="milestone-label">/mes</div>
+                <div class="milestone-what">Cubre tu suscripci&oacute;n</div>
+            </div>
+            <div class="milestone">
+                <div class="milestone-refs">5 referidos</div>
+                <div class="milestone-amount">$485</div>
+                <div class="milestone-label">/mes</div>
+                <div class="milestone-what">Pago del carro</div>
+            </div>
+            <div class="milestone">
+                <div class="milestone-refs">10 referidos</div>
+                <div class="milestone-amount">$970</div>
+                <div class="milestone-label">/mes</div>
+                <div class="milestone-what">Pago de hipoteca</div>
+            </div>
+        </div>
+
+        <p class="math-note">Cada mes. Recurrente. Mientras se queden. Sin l&iacute;mite de referidos.</p>
+    </div>
+
+    <!-- DEDICATED - SIDENOTE -->
+    <div class="dedicated-box">
+        <h3>&iquest;Conoces a muchos contratistas? Convi&eacute;rtelo en un ingreso real.</h3>
+        <p>Algunos socios no paran en 10. Si trabajas en construcci&oacute;n, ya conoces a la gente. Aqu&iacute; es donde los encuentras:</p>
+        <div class="dedicated-ideas">
+            <span class="idea-tag">Distribuidores</span>
+            <span class="idea-tag">Ferias del oficio</span>
+            <span class="idea-tag">Grupos de Facebook</span>
+            <span class="idea-tag">Asociaciones del gremio</span>
+            <span class="idea-tag">Sitios de trabajo</span>
+            <span class="idea-tag">Oficinas de permisos</span>
+            <span class="idea-tag">Tus subcontratistas</span>
+        </div>
+        <div class="dedicated-nums">
+            <div class="dedicated-num"><div class="big">$2,425/mes</div><div class="small">25 referidos</div></div>
+            <div class="dedicated-num"><div class="big">$4,850/mes</div><div class="small">50 referidos</div></div>
+            <div class="dedicated-num"><div class="big">$9,700/mes</div><div class="small">100 referidos</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- WHAT YOU'RE GIVING -->
+<section>
+    <h2>Lo Que Les <span>Est&aacute;s Dando</span></h2>
+    <p class="section-sub">Esto no es software. Es el sistema que les consigue m&aacute;s trabajos.</p>
+
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="product-icon">&#127760;</div>
+            <div class="product-name">Sitio Web Profesional</div>
+            <div class="product-benefit">Aparece cuando los clientes buscan en Google</div>
+            <div class="product-proof">&ldquo;Pas&eacute; de invisible a p&aacute;gina 1 en 3 semanas&rdquo;</div>
+        </div>
+        <div class="product-card">
+            <div class="product-icon">&#128222;</div>
+            <div class="product-name">Texto Autom&aacute;tico por Llamada Perdida</div>
+            <div class="product-benefit">&iquest;Ocupado en un trabajo? El sistema les responde al instante</div>
+            <div class="product-proof">&ldquo;Perd&iacute;a m&aacute;s de 5 clientes por semana por llamadas perdidas&rdquo;</div>
+        </div>
+        <div class="product-card">
+            <div class="product-icon">&#11088;</div>
+            <div class="product-name">Sistema de Rese&ntilde;as 5 Estrellas</div>
+            <div class="product-benefit">Los clientes contentos dejan rese&ntilde;as en autom&aacute;tico</div>
+            <div class="product-proof">&ldquo;Pas&eacute; de 12 rese&ntilde;as a 47 en dos meses&rdquo;</div>
+        </div>
+        <div class="product-card">
+            <div class="product-icon">&#128260;</div>
+            <div class="product-name">Seguimiento Automatizado</div>
+            <div class="product-benefit">Los clientes anteriores regresan y refieren durante un a&ntilde;o entero</div>
+            <div class="product-proof">&ldquo;Un cliente se convirti&oacute; en tres trabajos solo con los textos de seguimiento&rdquo;</div>
+        </div>
+    </div>
+    <p class="product-bottom"><strong>$297/mes.</strong> Sin contratos. Cancela cuando quieras. Nosotros construimos todo. Ellos no tocan nada.</p>
+</section>
+
+<!-- HOW -->
+<section>
+    <h2>Tres Pasos. <span>Eso Es Todo.</span></h2>
+    <p class="section-sub">Sin panel. Sin seguimiento. Sin trabajo.</p>
+    <div class="how-grid">
+        <div class="how-step">
+            <div class="how-num">1</div>
+            <div class="how-title">Env&iacute;a REFERIR</div>
+            <div class="how-desc">Env&iacute;a REFERIR al +1 (831) 230-8743. Recibes tu link personal al instante.</div>
+        </div>
+        <div class="how-step">
+            <div class="how-num">2</div>
+            <div class="how-title">Comp&aacute;rtelo</div>
+            <div class="how-desc">Env&iacute;a el link a cualquier contratista. Por texto, correo o en persona. T&uacute; decides.</div>
+        </div>
+        <div class="how-step">
+            <div class="how-num">3</div>
+            <div class="how-title">Cobra</div>
+            <div class="how-desc">$97/mes. Dep&oacute;sito directo. Cada mes que se queden. Env&iacute;a STATS para revisar.</div>
+        </div>
+    </div>
+</section>
+
+<!-- MARKET -->
+<section>
+    <div class="market-bar">
+        <div class="num">420,000+</div>
+        <p>contratistas hispanos en EE.UU. Creciendo 15% al a&ntilde;o. Nadie les ofrece estos sistemas en espa&ntilde;ol. T&uacute; s&iacute;.</p>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section>
+    <h2>Preguntas</h2>
+    <div style="margin-top:1rem;">
+        <div class="faq-item"><div class="faq-q">&iquest;C&oacute;mo consigo mi link de referido?</div><div class="faq-a">Env&iacute;a REFERIR al +1 (831) 230-8743. Recibes tu link al instante.</div></div>
+        <div class="faq-item"><div class="faq-q">&iquest;Cu&aacute;ndo me pagan?</div><div class="faq-a">Cada mes, el d&iacute;a 1, por dep&oacute;sito directo (Stripe). Los pagos comienzan 30 d&iacute;as despu&eacute;s del primer pago de tu referido.</div></div>
+        <div class="faq-item"><div class="faq-q">&iquest;Tengo que ser cliente de Slate?</div><div class="faq-a">Cada cliente se inscribe de forma autom&aacute;tica. &iquest;No eres cliente? Baja al formulario de registro. Dos campos y listo.</div></div>
+        <div class="faq-item"><div class="faq-q">&iquest;Qu&eacute; pasa si mi referido cancela?</div><div class="faq-a">La comisi&oacute;n se detiene. Si regresa, se reactiva. La mayor&iacute;a se queda porque el sistema funciona.</div></div>
+        <div class="faq-item"><div class="faq-q">&iquest;Hay un l&iacute;mite?</div><div class="faq-a">Sin l&iacute;mite. 1 o 100. $97/mes por cada referido activo.</div></div>
+        <div class="faq-item"><div class="faq-q">&iquest;Qu&eacute; pasa si cancelo mi propia suscripci&oacute;n?</div><div class="faq-a">Sigues ganando. Las comisiones por referidos son independientes de tu estado como cliente.</div></div>
+        <div class="faq-item"><div class="faq-q">&iquest;C&oacute;mo veo mis ganancias?</div><div class="faq-a">Env&iacute;a STATS al +1 (831) 230-8743. Referidos activos, pagos, ganancias totales. Todo por texto.</div></div>
+    </div>
+</section>
+
+<!-- SIGNUP FORM -->
+<section id="registro">
+    <h2>&iquest;No Eres Cliente de Slate? <span>Reg&iacute;strate Aqu&iacute;</span></h2>
+    <p class="section-sub">Dos campos. Un clic. Listo.</p>
+    <div style="max-width:500px; margin:0 auto; min-height:550px;">
+        <iframe
+            src="https://api.slatesystems.io/widget/form/aFtSp7BJcXFPToXD4TKq"
+            style="width:100%;height:100%;border:none;border-radius:4px"
+            id="inline-aFtSp7BJcXFPToXD4TKq"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Referral Recruit Form - Espa&ntilde;ol"
+            data-height="674"
+            data-layout-iframe-id="inline-aFtSp7BJcXFPToXD4TKq"
+            data-form-id="aFtSp7BJcXFPToXD4TKq"
+            title="Referral Recruit Form - Espa&ntilde;ol"
+        ></iframe>
+        <script src="https://api.slatesystems.io/js/form_embed.js"></script>
+    </div>
+</section>
+
+<!-- FINAL -->
+<section>
+    <div class="final-cta">
+        <h2 style="margin-bottom:0.4rem;">&iquest;Ya Eres Cliente de Slate?</h2>
+        <p style="color:rgba(255,255,255,0.5); font-size:0.85rem; margin-bottom:1.25rem;">Ya est&aacute;s inscrito. Env&iacute;a REFERIR al +1 (831) 230-8743 para obtener tu link.</p>
+        <a href="sms:+18312308743&body=REFERIR" class="cta-btn">Env&iacute;a REFERIR Ahora</a>
+    </div>
+</section>
+
+<footer>
+    <a href="https://slatesystems.io">Slate Systems</a> | <a href="https://help.slatesystems.io/referral-terms">T&eacute;rminos de Referidos</a> | <a href="mailto:hello@slatesystems.io">hello@slatesystems.io</a>
+    <br>$97/mes por cada referido activo. Dep&oacute;sito directo por Stripe. <a href="https://help.slatesystems.io/referral-terms">T&eacute;rminos completos</a>.
+</footer>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(i => {
+    i.querySelector('.faq-q').addEventListener('click', () => i.classList.toggle('open'));
+});
+</script>
+</body>
+</html>
