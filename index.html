@@ -157,5 +157,29 @@
             <br><a href="https://help.slatesystems.io/es/referral-terms">Términos del Programa de Referidos</a> | <a href="mailto:hello@slatesystems.io">hello@slatesystems.io</a>
         </p>
     </div>
+<script>
+// Slate Referral Attribution v1 (ES)
+// Captura ?ref=, cookie de 60 dias (gana el primer click),
+// agrega ?referred_by_contact_id=X a los CTAs que agendan llamada.
+(function(){
+  function setCookie(n,v,d){var x=new Date();x.setTime(x.getTime()+d*864e5);document.cookie=n+'='+v+';expires='+x.toUTCString()+';path=/;SameSite=Lax';}
+  function getCookie(n){var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return m?m.pop():null;}
+  var params=new URLSearchParams(window.location.search);
+  var ref=params.get('ref')||params.get('referred_by_contact_id');
+  if(ref&&!getCookie('slate_ref')){setCookie('slate_ref',ref,60);}
+  var partnerId=getCookie('slate_ref')||ref;
+  if(partnerId){
+    document.querySelectorAll('a[href*="slatesystems.io"]').forEach(function(a){
+      try{
+        var u=new URL(a.href,window.location.origin);
+        if(!u.searchParams.has('referred_by_contact_id')){
+          u.searchParams.set('referred_by_contact_id',partnerId);
+          a.href=u.toString();
+        }
+      }catch(e){}
+    });
+  }
+})();
+</script>
 </body>
 </html>
