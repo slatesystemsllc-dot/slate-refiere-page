@@ -3,164 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slate Systems - Referido por un Amigo</title>
+    <title>Slate Systems - Te Refirio un Contratista de Confianza</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root { --navy: #152a45; --orange: #ee7000; --gray: #6b7280; --white: #ffffff; --light: #f8fafc; --green: #166534; }
+        :root { --navy: #152a45; --orange: #ee7000; --gray: #6b7280; --white: #ffffff; --light: #f8fafc; --green: #166534; --green-light: #dcfce7; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Montserrat', -apple-system, sans-serif;
             background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
-            min-height: 100vh;
-            display: flex; align-items: center; justify-content: center;
-            padding: 2rem;
+            min-height: 100vh; padding: 1.5rem;
+            display: flex; align-items: flex-start; justify-content: center;
         }
         .card {
-            background: var(--white); border-radius: 20px; padding: 2.5rem 2rem;
-            max-width: 520px; width: 100%; text-align: center;
+            background: var(--white); border-radius: 20px; padding: 2rem 1.75rem;
+            max-width: 540px; width: 100%; text-align: center;
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
         }
-        .logo { margin-bottom: 1.25rem; }
-        .logo img { max-width: 160px; height: auto; }
+        .logo { margin-bottom: 1rem; }
+        .logo img { max-width: 140px; height: auto; }
         .badge {
-            display: inline-block; background: #dcfce7; color: var(--green);
-            padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.8rem;
-            font-weight: 600; margin-bottom: 1.25rem;
+            display: inline-block; background: var(--green-light); color: var(--green);
+            padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.78rem;
+            font-weight: 700; margin-bottom: 1rem; letter-spacing: 0.3px;
         }
-        h1 { color: var(--navy); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.25; }
-        .tagline { color: var(--orange); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .sub { color: var(--gray); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.5rem; }
+        h1 { color: var(--navy); font-size: 1.55rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1.2; }
+        .tagline { color: var(--orange); font-size: 0.95rem; font-weight: 700; margin-bottom: 1rem; }
+        .sub { color: var(--gray); font-size: 0.88rem; line-height: 1.55; margin-bottom: 1.4rem; }
         .cta {
-            display: inline-block; background: var(--orange); color: var(--white);
-            padding: 0.9rem 2rem; border-radius: 8px; font-weight: 700;
-            font-size: 0.95rem; text-decoration: none; margin-bottom: 1.75rem;
+            display: block; background: var(--orange); color: var(--white);
+            padding: 0.95rem 1.5rem; border-radius: 10px; font-weight: 700;
+            font-size: 1rem; text-decoration: none; margin-bottom: 1.4rem;
             transition: background 0.2s;
         }
         .cta:hover { background: #d46300; }
 
-        .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 1.75rem; text-align: left; }
+        .free-banner {
+            background: var(--green-light); color: var(--green);
+            padding: 0.7rem 1rem; border-radius: 10px; font-size: 0.88rem;
+            font-weight: 700; margin-bottom: 1.25rem;
+        }
+        .free-banner strong { font-weight: 800; }
+
+        .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1.4rem; text-align: left; }
         .pillar {
-            background: var(--light); border-radius: 10px; padding: 1.15rem;
+            background: var(--light); border-radius: 10px; padding: 0.85rem 0.95rem;
             border-left: 3px solid var(--orange);
         }
-        .pillar-icon { font-size: 1.3rem; margin-bottom: 0.3rem; }
+        .pillar-icon { font-size: 1.1rem; margin-bottom: 0.2rem; }
         .pillar-name { color: var(--navy); font-size: 0.78rem; font-weight: 700; margin-bottom: 0.15rem; }
-        .pillar-benefit { color: var(--gray); font-size: 0.7rem; font-style: italic; }
+        .pillar-benefit { color: var(--gray); font-size: 0.7rem; line-height: 1.35; }
 
         .price-bar {
             background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
-            border-radius: 12px; padding: 1.25rem; color: var(--white); margin-bottom: 1.5rem;
+            border-radius: 12px; padding: 1.1rem; color: var(--white); margin-bottom: 1.25rem;
         }
-        .price-bar .amount { font-size: 2.2rem; font-weight: 800; }
-        .price-bar .terms { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 0.2rem; }
-        .price-bar .includes {
-            display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;
-            margin-top: 0.75rem; font-size: 0.68rem; color: rgba(255,255,255,0.8);
-        }
-        .price-bar .tag {
-            background: rgba(238,112,0,0.2); color: var(--orange); padding: 0.2rem 0.5rem;
-            border-radius: 4px; font-weight: 600;
-        }
+        .price-bar .amount { font-size: 2.1rem; font-weight: 800; line-height: 1; }
+        .price-bar .terms { font-size: 0.74rem; color: rgba(255,255,255,0.65); margin-top: 0.3rem; }
 
-        .steps { text-align: left; margin-bottom: 1.5rem; }
-        .steps-title { color: var(--navy); font-size: 0.85rem; font-weight: 700; margin-bottom: 0.6rem; text-align: center; }
-        .step { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+        .proof {
+            background: #fff7ed; border: 1px solid #fed7aa; border-radius: 10px;
+            padding: 0.8rem 1rem; margin-bottom: 1.4rem;
+        }
+        .proof-num { font-size: 1.4rem; font-weight: 800; color: var(--orange); }
+        .proof-text { font-size: 0.78rem; color: var(--navy); font-weight: 600; margin-top: 0.1rem; }
+
+        .steps { text-align: left; margin-bottom: 1.4rem; }
+        .steps-title { color: var(--navy); font-size: 0.88rem; font-weight: 800; margin-bottom: 0.65rem; text-align: center; }
+        .step { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.5rem; }
         .step-num {
-            width: 24px; height: 24px; background: var(--orange); color: var(--white);
+            width: 26px; height: 26px; background: var(--orange); color: var(--white);
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 0.7rem; font-weight: 700; flex-shrink: 0;
+            font-size: 0.72rem; font-weight: 800; flex-shrink: 0;
         }
-        .step-text { color: var(--navy); font-size: 0.82rem; }
+        .step-text { color: var(--navy); font-size: 0.83rem; }
 
-        .trust { color: var(--gray); font-size: 0.72rem; margin-bottom: 1rem; line-height: 1.5; }
-        .partner-link { display: block; color: var(--orange); font-size: 0.78rem; font-weight: 600; text-decoration: none; margin-bottom: 1rem; }
-        .partner-link:hover { text-decoration: underline; }
-        .disclosure { color: #9ca3af; font-size: 0.68rem; line-height: 1.4; }
+        .trust { color: var(--gray); font-size: 0.72rem; margin-bottom: 0.85rem; line-height: 1.5; }
+        .disclosure { color: #9ca3af; font-size: 0.66rem; line-height: 1.45; }
         .disclosure a { color: var(--orange); text-decoration: none; }
 
-        @media (max-width: 500px) {
-            .card { padding: 2rem 1.25rem; }
-            h1 { font-size: 1.6rem; }
-            .cta { display: block; width: 100%; padding: 1rem 2rem; font-size: 1rem; }
-            .price-bar { padding: 1.5rem 1.25rem; }
-        }
-        @media (max-width: 360px) {
+        @media (max-width: 480px) {
+            .card { padding: 1.5rem 1.15rem; }
+            h1 { font-size: 1.4rem; }
             .pillars { grid-template-columns: 1fr; }
+            .price-bar .amount { font-size: 1.85rem; }
         }
     </style>
 </head>
 <body>
     <div class="card">
         <div class="logo"><img src="logo.png" alt="Slate Systems"></div>
-        <div class="badge">Referido por un Socio de Slate</div>
+        <div class="badge">Te Envio un Contratista de Confianza</div>
 
-        <h1>Deja de Perder Trabajos Contra Contratistas que se Ven Mejor en Internet</h1>
-        <div class="tagline">Más Llamadas. Más Reseñas. Más Trabajos.</div>
-        <p class="sub">Alguien de tu confianza usa Slate para hacer crecer su negocio. Pensaron que tú también deberías. Construimos tu página web y configuramos sistemas que trabajan por ti. Tú no tocas nada.</p>
+        <h1>Deja de Perder Trabajos por Verte Mal en Internet</h1>
+        <div class="tagline">Mas Llamadas. Mas Resenas. Mas Trabajos.</div>
+        <p class="sub">Alguien que maneja su negocio con Slate te envio aqui. Sabe que funciona. Nosotros construimos tu pagina web y montamos los sistemas. Tu no tocas nada.</p>
 
-        <a href="https://slatesystems.io/referido-reservar" id="cta-top" class="cta">Agenda una Llamada Gratis de 10 Minutos</a>
+        <a href="https://slatesystems.io/referido-reservar" id="cta-top" class="cta">Agendar Llamada Gratis (10 min)</a>
+
+        <div class="free-banner">
+            <strong>Pagina web GRATIS incluida.</strong> Sin costos de instalacion. Sin trampa.
+        </div>
 
         <div class="pillars">
             <div class="pillar">
                 <div class="pillar-icon">&#127760;</div>
-                <div class="pillar-name">Página Web Profesional</div>
-                <div class="pillar-benefit">Una página web real que funciona, no una plantilla</div>
+                <div class="pillar-name">Pagina Web Profesional</div>
+                <div class="pillar-benefit">Hecha para Google y ChatGPT. Los clientes te encuentran.</div>
             </div>
             <div class="pillar">
                 <div class="pillar-icon">&#128222;</div>
-                <div class="pillar-name">Texto por Llamada Perdida</div>
-                <div class="pillar-benefit">Nunca pierdas un cliente por "se me olvidó devolver la llamada"</div>
+                <div class="pillar-name">Texto Automatico por Llamada Perdida</div>
+                <div class="pillar-benefit">Mensaje automatico en menos de un minuto. Nunca pierdes un cliente.</div>
             </div>
             <div class="pillar">
                 <div class="pillar-icon">&#11088;</div>
-                <div class="pillar-name">Sistema de Reseñas 5 Estrellas</div>
-                <div class="pillar-benefit">Consigue reseñas de 5 estrellas en piloto automático</div>
+                <div class="pillar-name">Sistema de 5 Estrellas de Google</div>
+                <div class="pillar-benefit">4 recordatorios en un mes. Las resenas se acumulan.</div>
             </div>
             <div class="pillar">
                 <div class="pillar-icon">&#128260;</div>
-                <div class="pillar-name">Seguimiento Automático</div>
-                <div class="pillar-benefit">Un cliente se convierte en tres</div>
+                <div class="pillar-name">Seguimiento de 1 Ano</div>
+                <div class="pillar-benefit">Los clientes viejos regresan. Un trabajo se vuelve tres.</div>
             </div>
         </div>
 
         <div class="price-bar">
             <div class="amount">$297/mes</div>
-            <div class="terms">Sin contratos. Sin cargos ocultos. Cancela cuando quieras.</div>
-            <div class="includes">
-                <span class="tag">Página Web</span>
-                <span class="tag">Reseñas</span>
-                <span class="tag">Llamadas Perdidas</span>
-                <span class="tag">Seguimiento</span>
-                <span class="tag">Perfil de Google</span>
-            </div>
+            <div class="terms">Sin contratos. Sin costos ocultos. Cancelas cuando quieras.</div>
+        </div>
+
+        <div class="proof">
+            <div class="proof-num">Mas de 1,000 contratistas</div>
+            <div class="proof-text">confian en este sistema para hacer crecer su negocio.</div>
         </div>
 
         <div class="steps">
-            <div class="steps-title">Cómo Funciona</div>
-            <div class="step"><div class="step-num">1</div><div class="step-text">Agenda una llamada rápida (10 min, sin presión)</div></div>
-            <div class="step"><div class="step-num">2</div><div class="step-text">Nosotros construimos todo en 7-10 días</div></div>
-            <div class="step"><div class="step-num">3</div><div class="step-text">Llamada de lanzamiento para mostrarte tu nuevo sistema</div></div>
-            <div class="step"><div class="step-num">4</div><div class="step-text">Llamadas, reseñas y seguimientos empiezan solos</div></div>
+            <div class="steps-title">Como Funciona</div>
+            <div class="step"><div class="step-num">1</div><div class="step-text">Agenda una llamada rapida (10 min, sin presion)</div></div>
+            <div class="step"><div class="step-num">2</div><div class="step-text">Te construimos todo (hasta 14 dias)</div></div>
+            <div class="step"><div class="step-num">3</div><div class="step-text">Llamada de lanzamiento para mostrarte todo</div></div>
+            <div class="step"><div class="step-num">4</div><div class="step-text">Llamadas, resenas y seguimientos pasan en automatico</div></div>
         </div>
 
         <a href="https://slatesystems.io/referido-reservar" id="cta-bottom" class="cta">Agenda Tu Llamada Gratis</a>
 
-        <p class="trust">Construimos sitios web y configuramos sistemas que trabajan por ti. Para contratistas. $297/mes. Sin contratos. Cancela cuando quieras. Más de 100 contratistas confían en Slate para hacer crecer su negocio.</p>
-
-        <a href="https://socios.slatesystems.io" class="partner-link">¿Quieres ganar dinero refiriendo contratistas? Conoce nuestro Programa de Socios</a>
+        <p class="trust">$297/mes. Sin contratos. Cancela cuando quieras.</p>
 
         <p class="disclosure">
-            Aviso: La persona que te compartió este enlace es un socio de referidos de Slate y gana una comisión si te registras.
-            <br><a href="https://help.slatesystems.io/es/referral-terms">Términos del Programa de Referidos</a> | <a href="mailto:hello@slatesystems.io">hello@slatesystems.io</a>
+            El contratista que compartio este link gana una comision si te registras. Aviso requerido por la FTC.
+            <br><a href="/terminos">Terminos del Programa de Referidos</a> &middot; <a href="mailto:hello@slatesystems.io">hello@slatesystems.io</a>
         </p>
     </div>
 <script>
 // Slate Referral Attribution v1 (ES)
-// Captura ?ref=, cookie de 60 dias (gana el primer click),
-// agrega ?referred_by_contact_id=X a los CTAs que agendan llamada.
 (function(){
   function setCookie(n,v,d){var x=new Date();x.setTime(x.getTime()+d*864e5);document.cookie=n+'='+v+';expires='+x.toUTCString()+';path=/;SameSite=Lax';}
   function getCookie(n){var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return m?m.pop():null;}
