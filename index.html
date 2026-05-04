@@ -144,5 +144,15 @@
   }
 })();
 </script>
+<script>
+document.querySelectorAll('.faq-card-q').forEach(function(q){
+    q.addEventListener('click', function(){
+        var id = q.dataset.faq;
+        var a = document.getElementById('faq-a-' + id);
+        if (a.style.display === 'block') { a.style.display = 'none'; q.querySelector('span').textContent = '+'; }
+        else { a.style.display = 'block'; q.querySelector('span').textContent = '−'; }
+    });
+});
+</script>
 </body>
 </html>
