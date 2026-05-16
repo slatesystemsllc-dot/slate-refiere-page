@@ -19,7 +19,7 @@
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 17px; line-height: 1.6; background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%); min-height: 100vh; padding: 1.5rem; display: flex; align-items: flex-start; justify-content: center; color: var(--navy); -webkit-font-smoothing: antialiased; }
         .card { background: var(--white); border-radius: 20px; padding: 2.25rem 1.85rem; max-width: 540px; width: 100%; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
         .logo { margin-bottom: 1rem; }
-        .logo img { max-width: 150px; height: auto; }
+        .logo img { max-width: 130px; height: auto; }
         .badge { display: inline-block; background: var(--green-light); color: var(--green); padding: 0.45rem 1rem; border-radius: 20px; font-size: 0.82rem; font-weight: 700; margin-bottom: 1.1rem; letter-spacing: 0.3px; }
         h1 { color: var(--navy); font-size: clamp(1.85rem, 5vw, 2.4rem); font-weight: 800; margin-bottom: 0.55rem; line-height: 1.2; letter-spacing: -0.01em; }
         .tagline { color: var(--orange); font-size: 1rem; font-weight: 700; margin-bottom: 1.1rem; }
@@ -63,6 +63,10 @@
         .disclosure { color: #9ca3af; font-size: 0.85rem; line-height: 1.55; }
         .disclosure a { color: var(--orange); text-decoration: none; }
         @media (max-width: 480px) { .card { padding: 1.6rem 1.2rem; } h1 { font-size: 1.45rem; } .price-bar .amount { font-size: 1.95rem; } .cta { font-size: 1.05rem; padding: 1.05rem 1.25rem; } }
+
+        @media (min-width: 768px) {
+            .logo img { max-width: 220px; }
+        }
     </style>
 </head>
 <body>
@@ -175,16 +179,6 @@
     });
   }
 })();
-</script>
-<script>
-document.querySelectorAll('.faq-card-q').forEach(function(q){
-    q.addEventListener('click', function(){
-        var id = q.dataset.faq;
-        var a = document.getElementById('faq-a-' + id);
-        if (a.style.display === 'block') { a.style.display = 'none'; q.querySelector('span').textContent = '+'; }
-        else { a.style.display = 'block'; q.querySelector('span').textContent = '−'; }
-    });
-});
 </script>
 <script>
 document.querySelectorAll('.faq-card-q').forEach(function(q){
