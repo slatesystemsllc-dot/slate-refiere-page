@@ -67,6 +67,17 @@
         @media (min-width: 768px) {
             .logo img { max-width: 220px; }
         }
+
+        .testimonials { margin: 1.5rem 0 1.2rem; }
+        .testimonials-eyebrow { color: var(--orange); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; text-align: center; margin-bottom: 0.4rem; }
+        .testimonials-title { color: var(--navy); font-size: 1.15rem; font-weight: 800; text-align: center; margin-bottom: 0.85rem; line-height: 1.25; }
+        .testi-grid { display: grid; grid-template-columns: 1fr; gap: 0.85rem; }
+        .testi-card { background: var(--light); border: 1px solid rgba(238,112,0,0.18); border-radius: 10px; padding: 0.55rem 0.55rem 0.7rem; }
+        .testi-card wistia-player { display: block; border-radius: 6px; overflow: hidden; }
+        .testi-meta { padding-top: 0.55rem; text-align: center; }
+        .testi-name { font-size: 0.92rem; font-weight: 800; color: var(--navy); line-height: 1.2; }
+        .testi-trade { font-size: 0.78rem; color: var(--gray); margin-top: 0.18rem; letter-spacing: 0.02em; }
+        @media (min-width: 640px) { .testi-grid { grid-template-columns: repeat(3, 1fr); } }
     </style>
 </head>
 <body>
