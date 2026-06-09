@@ -78,6 +78,22 @@
         .testi-name { font-size: 0.92rem; font-weight: 800; color: var(--navy); line-height: 1.2; }
         .testi-trade { font-size: 0.78rem; color: var(--gray); margin-top: 0.18rem; letter-spacing: 0.02em; }
         @media (min-width: 640px) { .testi-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .vsl { margin: 1.4rem 0 1rem; }
+        .vsl-eyebrow { color: var(--orange); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; text-align: center; margin-bottom: 0.35rem; }
+        .vsl-title { color: var(--navy); font-size: 1.25rem; font-weight: 800; text-align: center; margin-bottom: 0.7rem; line-height: 1.2; }
+        .vsl-frame { background: var(--navy); border-radius: 12px; padding: 0.5rem; overflow: hidden; }
+        .vsl-frame wistia-player { display: block; border-radius: 8px; overflow: hidden; }
+        .cta-inline { display: block; background: linear-gradient(135deg, #ff8a2b 0%, #ee7000 55%, #d46300 100%); color: white; font-weight: 800; font-size: 1.05rem; text-align: center; padding: 0.95rem 1.4rem; border-radius: 12px; text-decoration: none; margin: 1.1rem 0; box-shadow: 0 8px 24px rgba(238,112,0,0.4); animation: glow-pulse 2.4s ease-in-out infinite; }
+        .booking-section { background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border: 2px solid var(--orange); border-radius: 14px; padding: 1.2rem 0.9rem 0.9rem; margin: 1.5rem 0 1.2rem; scroll-margin-top: 1rem; }
+        .booking-eyebrow { color: var(--orange); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; text-align: center; margin-bottom: 0.35rem; }
+        .booking-title { color: var(--navy); font-size: 1.3rem; font-weight: 800; text-align: center; margin-bottom: 1rem; line-height: 1.2; }
+        .booking-frame { background: white; border-radius: 10px; overflow: hidden; }
+        .booking-frame iframe { display: block; width: 100%; min-height: 800px; border: 0; }
+        .sticky-cta { position: fixed; bottom: 12px; left: 12px; right: 12px; z-index: 99; opacity: 0; pointer-events: none; transform: translateY(20px); transition: opacity 0.25s, transform 0.25s; background: linear-gradient(135deg, #ff8a2b 0%, #ee7000 55%, #d46300 100%); color: white; text-align: center; padding: 0.9rem 1.1rem; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 1rem; box-shadow: 0 10px 28px rgba(238,112,0,0.55); animation: glow-pulse 2.4s ease-in-out infinite; }
+        .sticky-cta.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        @media (min-width: 720px) { .sticky-cta { left: auto; right: 24px; bottom: 24px; width: auto; padding: 0.85rem 1.4rem; max-width: 320px; } }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
@@ -89,7 +105,7 @@
         <div class="tagline">Sin que t&uacute; tengas que aprender nada nuevo.</div>
         <p class="sub">Alguien de confianza te recomend&oacute; Slate porque saben que funciona. Nosotros te montamos todo, t&uacute; sigues haciendo tu trabajo igual que siempre.</p>
 
-        <a href="https://slatesystems.io/referido-reservar" id="cta-top" class="cta">Agenda una Llamada Gratis (15 min)</a>
+        <a href="#book" id="cta-top" class="cta">Agenda una Llamada Gratis (15 min)</a>
 
         <div class="price-bar">
             <div class="amount">$297 al mes</div>
@@ -99,6 +115,17 @@
         <div class="free-banner">
             <strong>P&aacute;gina web GRATIS.</strong><br>Sin costos para empezar. Sin compromiso a largo plazo.
         </div>
+
+        
+        <div class="vsl">
+            <div class="vsl-eyebrow">Video de 6 Minutos</div>
+            <div class="vsl-title">Por qu&eacute; esto funciona.</div>
+            <script src="https://fast.wistia.com/player.js" async></script>
+            <script src="https://fast.wistia.com/embed/9kj3fyu5d5.js" async type="module"></script>
+            <style>wistia-player[media-id='9kj3fyu5d5']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/9kj3fyu5d5/swatch'); display: block; filter: blur(5px); padding-top:51.67%; }</style>
+            <div class="vsl-frame"><wistia-player media-id="9kj3fyu5d5" aspect="1.935483870967742"></wistia-player></div>
+        </div>
+        <a href="#book" id="cta-after-vsl" class="cta-inline">Agenda Tu Llamada Gratis (15 min)</a>
 
         <div class="pillars-intro">Esto es lo que recibes por $297 al mes:</div>
 
@@ -134,6 +161,7 @@
             </div>
         </div>
 
+                <a href="#book" id="cta-after-pillars" class="cta-inline">Agenda Tu Llamada Gratis (15 min)</a>
         <div class="proof">
             <div class="proof-num">M&aacute;s de 1,000 contratistas</div>
             <div class="proof-text">usan este sistema todos los d&iacute;as para hacer crecer su negocio.</div>
@@ -148,6 +176,7 @@
         </div>
 
         
+                <a href="#book" id="cta-after-steps" class="cta-inline">Agenda Tu Llamada Gratis (15 min)</a>
         <div class="testimonials">
             <div class="testimonials-eyebrow">Contratistas Reales</div>
             <div class="testimonials-title">Mira lo que dicen los que ya lo usan.</div>
@@ -176,7 +205,19 @@
             </div>
         </div>
 
-        <a href="https://slatesystems.io/referido-reservar" id="cta-bottom" class="cta">Agenda Tu Llamada Gratis</a>
+        <div class="booking-section" id="book">
+            <div class="booking-eyebrow">Agenda Ahora</div>
+            <div class="booking-title">Reserva tu llamada gratis de 15 minutos.</div>
+            <div class="booking-frame">
+                <iframe id="booking-iframe"
+                    data-src="https://api.leadconnectorhq.com/widget/booking/D4HEWBK5WhflY8pj7ZbR"
+                    src="https://api.leadconnectorhq.com/widget/booking/D4HEWBK5WhflY8pj7ZbR"
+                    scrolling="no"
+                    title="Agenda una Llamada Gratis">
+                </iframe>
+            </div>
+            <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+        </div>
 
         <div class="faq-section" style="margin-top: 1.5rem; margin-bottom: 1.4rem; text-align: left;">
             <div style="text-align: center; font-size: 0.95rem; font-weight: 800; color: var(--navy); margin-bottom: 0.85rem;">Preguntas Comunes</div>
@@ -229,6 +270,27 @@ document.querySelectorAll('.faq-card-q').forEach(function(q){
         else { a.style.display = 'block'; q.querySelector('span').textContent = '\u2212'; }
     });
 });
+</script>
+        <a href="#book" class="sticky-cta" id="sticky-cta">Agenda Tu Llamada &middot; 15 min</a>
+
+<script>
+(function(){
+  function getCookie(n){ var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)'); return m?m.pop():null; }
+  var ref = getCookie('slate_ref');
+  var iframe = document.getElementById('booking-iframe');
+  if (iframe && ref) {
+    var base = iframe.dataset.src || iframe.src.split('?')[0];
+    iframe.src = base + '?ref=' + encodeURIComponent(ref);
+  }
+  var heroCta = document.getElementById('cta-top');
+  var book = document.getElementById('book');
+  var sticky = document.getElementById('sticky-cta');
+  if (!heroCta || !book || !sticky || !('IntersectionObserver' in window)) return;
+  var heroVisible = true, bookVisible = false;
+  function update(){ sticky.classList.toggle('visible', !heroVisible && !bookVisible); }
+  new IntersectionObserver(function(es){ es.forEach(function(e){ heroVisible = e.isIntersecting; update(); }); }, { threshold: 0.1 }).observe(heroCta);
+  new IntersectionObserver(function(es){ es.forEach(function(e){ bookVisible = e.isIntersecting; update(); }); }, { threshold: 0.15 }).observe(book);
+})();
 </script>
 </body>
 </html>
