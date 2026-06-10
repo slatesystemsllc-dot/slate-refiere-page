@@ -47,7 +47,7 @@ export async function onRequest(context) {
       context.waitUntil(fetch('https://baserow.slatesystems.io/api/database/rows/table/1044/?user_field_names=true', {
         method: 'POST',
         headers: { 'Authorization': `Token ${env.BASEROW_TOKEN}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ Name: slug, slug: slug, lang: 'es', ts: new Date().toISOString() })
+        body: JSON.stringify({ Name: slug, slug: slug, lang: 'es' })
       }));
     } catch (e) { /* logging is optional */ }
     return Response.redirect(
