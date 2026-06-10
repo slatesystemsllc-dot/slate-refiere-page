@@ -71,12 +71,14 @@
         .testimonials { margin: 1.5rem 0 1.2rem; }
         .testimonials-eyebrow { color: var(--orange); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; text-align: center; margin-bottom: 0.4rem; }
         .testimonials-title { color: var(--navy); font-size: 1.15rem; font-weight: 800; text-align: center; margin-bottom: 0.85rem; line-height: 1.25; }
-        .testi-grid { display: grid; grid-template-columns: 1fr; gap: 0.85rem; }
-        .testi-card { background: var(--light); border: 1px solid rgba(238,112,0,0.18); border-radius: 10px; padding: 0.55rem 0.55rem 0.7rem; }
-        .testi-card wistia-player { display: block; border-radius: 6px; overflow: hidden; }
-        .testi-meta { padding-top: 0.55rem; text-align: center; }
-        .testi-name { font-size: 0.92rem; font-weight: 800; color: var(--navy); line-height: 1.2; }
-        .testi-trade { font-size: 0.78rem; color: var(--gray); margin-top: 0.18rem; letter-spacing: 0.02em; }
+        .testi-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+        .testi-card { background: var(--white); border: 1px solid #e3e8f0; border-radius: 16px; padding: 0.6rem 0.6rem 0.85rem; box-shadow: 0 6px 20px rgba(15,30,52,0.08); transition: transform 0.2s, box-shadow 0.2s; }
+        .testi-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(15,30,52,0.14); }
+        .testi-card wistia-player { display: block; border-radius: 11px; overflow: hidden; }
+        .testi-meta { padding: 0.65rem 0.3rem 0; display: flex; align-items: center; gap: 0.5rem; justify-content: center; }
+        .testi-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+        .testi-name { font-size: 0.95rem; font-weight: 800; color: var(--navy); line-height: 1.2; }
+        .testi-trade { font-size: 0.78rem; color: var(--gray); letter-spacing: 0.02em; }
         @media (min-width: 640px) { .testi-grid { grid-template-columns: repeat(3, 1fr); } }
 
         .vsl { margin: 1.4rem 0 1rem; }
@@ -192,15 +194,15 @@
             <div class="testi-grid">
                 <div class="testi-card">
                     <wistia-player media-id="n0r2vzvell" aspect="0.5625"></wistia-player>
-                    <div class="testi-meta"><div class="testi-name">Daniel</div><div class="testi-trade">Ventanas y Puertas</div></div>
+                    <div class="testi-meta"><span class="testi-dot"></span><span class="testi-name">Daniel</span><span class="testi-trade">&middot; Ventanas y Puertas</span></div>
                 </div>
                 <div class="testi-card">
                     <wistia-player media-id="cnyd7qnwa9" aspect="0.5625"></wistia-player>
-                    <div class="testi-meta"><div class="testi-name">Aire Acondicionado</div><div class="testi-trade">15+ a&ntilde;os en el oficio</div></div>
+                    <div class="testi-meta"><span class="testi-dot"></span><span class="testi-name">Aire Acondicionado</span><span class="testi-trade">&middot; 15+ a&ntilde;os en el oficio</span></div>
                 </div>
                 <div class="testi-card">
                     <wistia-player media-id="i71gfqo6z7" aspect="0.5625"></wistia-player>
-                    <div class="testi-meta"><div class="testi-name">Rodrigo</div><div class="testi-trade">Pintor</div></div>
+                    <div class="testi-meta"><span class="testi-dot"></span><span class="testi-name">Rodrigo</span><span class="testi-trade">&middot; Pintor</span></div>
                 </div>
             </div>
         </div>
