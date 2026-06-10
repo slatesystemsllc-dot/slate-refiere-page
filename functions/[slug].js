@@ -41,6 +41,15 @@ export async function onRequest(context) {
     const partnerContactId = match['GHL Contact ID'];
     if (!partnerContactId) return next();
 
+
+    // V27: fire-and-forget click log to T.1044 (Referral Clicks). Never blocks the redirect.
+    try {
+      context.waitUntil(fetch('https://baserow.slatesystems.io/api/database/rows/table/1044/?user_field_names=true', {
+        method: 'POST',
+        headers: { 'Authorization': `Token ${env.BASEROW_TOKEN}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ Name: slug, slug: slug, lang: 'es', ts: new Date().toISOString() })
+      }));
+    } catch (e) { /* logging is optional */ }
     return Response.redirect(
       `https://refiere.slatesystems.io/?ref=${encodeURIComponent(partnerContactId)}`,
       302
