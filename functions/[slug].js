@@ -38,6 +38,12 @@ export async function onRequest(context) {
 
     if (!match) return next();
 
+    // Offboarded partners (Status != Active) keep their data but their links go dark.
+    const rowStatus = (match.Status && (match.Status.value || match.Status)) || '';
+    if (String(rowStatus) !== 'Active') {
+      return next();
+    }
+
     const partnerContactId = match['GHL Contact ID'];
     if (!partnerContactId) return next();
 
