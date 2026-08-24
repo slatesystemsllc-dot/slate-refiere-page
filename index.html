@@ -244,17 +244,32 @@
     </div>
 <script>
 (function(){
-  function setCookie(n,v,d){var x=new Date();x.setTime(x.getTime()+d*864e5);document.cookie=n+'='+v+';expires='+x.toUTCString()+';path=/;SameSite=Lax';}
-  function getCookie(n){var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return m?m.pop():null;}
-  var params=new URLSearchParams(window.location.search);
-  var ref=params.get('ref')||params.get('referred_by_contact_id');
-  if(ref&&!getCookie('slate_ref')){setCookie('slate_ref',ref,60);}
-  var partnerId=getCookie('slate_ref')||ref;
+  // WS7.1: the 60-day referral memory. The ref is kept in a cookie AND in localStorage,
+  // so one store being blocked or cleared still leaves the other. First captured wins:
+  // a ref already held is never overwritten. Every read and write is guarded, and the
+  // page renders normally when neither store is available.
+  var KEY='slate_ref', DAYS=60;
+  function readCookie(){try{var m=document.cookie.match('(^|;)\\s*'+KEY+'\\s*=\\s*([^;]+)');return m?m.pop():null;}catch(e){return null;}}
+  function writeCookie(v){try{var x=new Date();x.setTime(x.getTime()+DAYS*864e5);document.cookie=KEY+'='+v+';expires='+x.toUTCString()+';max-age='+(DAYS*86400)+';path=/;SameSite=Lax';}catch(e){}}
+  function readStore(){try{return window.localStorage.getItem(KEY);}catch(e){return null;}}
+  function writeStore(v){try{window.localStorage.setItem(KEY,v);}catch(e){}}
+  var ref=null;
+  try{
+    var params=new URLSearchParams(window.location.search);
+    ref=params.get('ref')||params.get('referred_by_contact_id');
+  }catch(e){}
+  // A GHL contact id is plain alphanumeric. Anything else never reaches a store.
+  if(ref&&!/^[A-Za-z0-9_-]{1,64}$/.test(ref)){ref=null;}
+  var stored=readCookie()||readStore();
+  if(!stored&&ref){writeCookie(ref);writeStore(ref);stored=ref;}
+  else if(stored){if(!readCookie()){writeCookie(stored);}if(!readStore()){writeStore(stored);}}
+  var partnerId=stored||ref;
+  window.slateRef=partnerId||null;
   if(partnerId){
-    document.querySelectorAll('a[href*="slatesystems.io"]').forEach(function(a){
+    document.querySelectorAll('a[href*="slatesystems.io"], a[href*="leadconnectorhq.com"]').forEach(function(a){
       try{
         var u=new URL(a.href,window.location.origin);
-        if(!u.searchParams.has('referred_by_contact_id')){
+        if(!u.searchParams.has('referred_by_contact_id')&&!u.searchParams.has('ref')){
           u.searchParams.set('referred_by_contact_id',partnerId);
           a.href=u.toString();
         }
@@ -277,8 +292,9 @@ document.querySelectorAll('.faq-card-q').forEach(function(q){
 
 <script>
 (function(){
-  function getCookie(n){ var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)'); return m?m.pop():null; }
-  var ref = getCookie('slate_ref');
+  function getCookie(n){ try { var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)'); return m?m.pop():null; } catch(e){ return null; } }
+  function getStore(n){ try { return window.localStorage.getItem(n); } catch(e){ return null; } }
+  var ref = window.slateRef || getCookie('slate_ref') || getStore('slate_ref');
   var iframe = document.getElementById('booking-iframe');
   if (iframe && ref) {
     var base = iframe.dataset.src || iframe.src.split('?')[0];
