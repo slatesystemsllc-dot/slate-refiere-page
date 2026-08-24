@@ -4,12 +4,12 @@
 // refiere.slatesystems.io/?ref=PARTNER_GHL_CONTACT_ID.
 //
 // Skips the root, /terminos, and asset paths so the static layer serves them.
-// Replaces /r/[slug].js (kept for backward compat — old SMS links still work).
+// Replaces /r/[slug].js (kept for backward compat, old SMS links still work).
 //
 // REQUIRED CF Pages env var: BASEROW_TOKEN (read access to T.955).
 
 export async function onRequest(context) {
-  const { params, env, next } = context;
+  const { params, env, request, next } = context;
   const slug = params.slug;
 
   if (!slug ||
@@ -55,6 +55,23 @@ export async function onRequest(context) {
         headers: { 'Authorization': `Token ${env.BASEROW_TOKEN}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ Name: slug, slug: slug, lang: 'es' })
       }));
+    } catch (e) { /* logging is optional */ }
+
+    // WS6.1: fire-and-forget click log to n8n (referral-click). The webhook may be
+    // inactive, so a 404 is harmless: this never blocks or delays the redirect.
+    try {
+      const clickUrl = new URL(request.url);
+      context.waitUntil(fetch('https://n8n.slatesystems.io/webhook/referral-click', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          slug: slug,
+          m: clickUrl.searchParams.get('m') || '',
+          host: clickUrl.hostname,
+          path: clickUrl.pathname,
+          lang: 'es'
+        })
+      }).catch(() => {}));
     } catch (e) { /* logging is optional */ }
     return Response.redirect(
       `https://refiere.slatesystems.io/?ref=${encodeURIComponent(partnerContactId)}`,
