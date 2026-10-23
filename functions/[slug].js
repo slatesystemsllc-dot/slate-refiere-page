@@ -32,8 +32,12 @@ export async function onRequest(context) {
     if (!resp.ok) return next();
 
     const data = await resp.json();
+    // An old slug listed in referral_code_aliases (comma-separated) still resolves to the
+    // same partner, so a renamed code never breaks a link already sent (2026-10-23: dremos -> dramos).
+    const want = slug.toLowerCase();
     const match = (data.results || []).find(r =>
-      String(r['referral_code'] || '').toLowerCase() === slug.toLowerCase()
+      String(r['referral_code'] || '').toLowerCase() === want ||
+      String(r['referral_code_aliases'] || '').toLowerCase().split(',').map(a => a.trim()).includes(want)
     );
 
     if (!match) return next();
@@ -44,6 +48,7 @@ export async function onRequest(context) {
       return next();
     }
 
+    const code = String(match['referral_code'] || slug).trim();
     const partnerContactId = match['GHL Contact ID'];
     if (!partnerContactId) return next();
 
@@ -53,7 +58,7 @@ export async function onRequest(context) {
       context.waitUntil(fetch('https://baserow.slatesystems.io/api/database/rows/table/1044/?user_field_names=true', {
         method: 'POST',
         headers: { 'Authorization': `Token ${env.BASEROW_TOKEN}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ Name: slug, slug: slug, lang: 'es' })
+        body: JSON.stringify({ Name: code, slug: code, lang: 'es' })
       }));
     } catch (e) { /* logging is optional */ }
 
@@ -65,7 +70,7 @@ export async function onRequest(context) {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
-          slug: slug,
+          slug: code,
           m: clickUrl.searchParams.get('m') || '',
           host: clickUrl.hostname,
           path: clickUrl.pathname,
